@@ -25,7 +25,10 @@ async function api(endpoint, options = {}) {
   }
   if (!res.ok) {
     const err = await res.json().catch(() => ({}))
-    throw new Error(err.detail || res.statusText)
+    const msg = Array.isArray(err.detail)
+      ? err.detail.map((x) => x.msg || x.loc?.join('.') || JSON.stringify(x)).join('; ')
+      : (err.detail || res.statusText)
+    throw new Error(msg)
   }
   if (res.status === 204 || res.headers.get('content-length') === '0') return null
   return res.json()

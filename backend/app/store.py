@@ -347,6 +347,42 @@ def update_leave_request_approve(
     return None
 
 
+def _parse_date(d) -> date:
+    if isinstance(d, date):
+        return d
+    if isinstance(d, str):
+        return date.fromisoformat(d)
+    raise TypeError("expected date or str")
+
+
+def has_overlapping_request(user_id: int, leave_type_id: int, start_date: date, end_date: date) -> bool:
+    """True if there is another leave request for same user+leave_type with status pending or approved that overlaps [start_date, end_date]."""
+    data = _get_data()
+    for r in data.get("leave_requests", []):
+        if r["user_id"] != user_id or r["leave_type_id"] != leave_type_id:
+            continue
+        if r["status"] not in ("pending", "approved"):
+            continue
+        s2 = _parse_date(r["start_date"])
+        e2 = _parse_date(r["end_date"])
+        if start_date <= e2 and s2 <= end_date:
+            return True
+    return False
+
+
+def update_leave_request_cancel(request_id: int) -> dict | None:
+    """Set status to cancelled. Caller must ensure owner and pending."""
+    data = _get_data()
+    now = datetime.now().isoformat()
+    for r in data.get("leave_requests", []):
+        if r["id"] == request_id:
+            r["status"] = "cancelled"
+            r["updated_at"] = now
+            _put_data(data)
+            return r
+    return None
+
+
 def log_action(
     action: str,
     actor_id: int | None = None,

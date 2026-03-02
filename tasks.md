@@ -57,15 +57,15 @@
 
 **Goal:** Submit, list, get, approve/reject, cancel (owner pending only). Validate date (end ≥ start), overlap (same user+leave_type), balance (skip for unpaid); clear error messages; rejection reason visible to owner.
 
-- [ ] T020 [Leave] POST `/api/leave-requests` — create; validate end_date ≥ start_date, no overlap same user+leave_type, sufficient balance (skip if leave type unpaid/zero entitlement); return clear error message on validation failure (`backend/app/routers/leave_requests.py`)
-- [ ] T021 [Leave] GET `/api/leave-requests` — list (own or reportees for manager; any for admin); query status, my_only; MVP no year filter (`backend/app/routers/leave_requests.py`)
-- [ ] T022 [Leave] GET `/api/leave-requests/{id}` — get one (owner or manager/admin) (`backend/app/routers/leave_requests.py`)
-- [ ] T023 [Leave] POST `/api/leave-requests/{id}/approve` — approve/reject (manager/admin); body approved, rejection_reason (optional); store rejection_reason; update balance on approve (skip add_used_days for unpaid leave type) (`backend/app/routers/leave_requests.py`)
-- [ ] T024 [Leave] Store: `get_or_create_balance`, `add_used_days` (skip for zero-entitlement type), audit log on approve/reject (`backend/app/store.py`)
-- [ ] T025 [Leave] PATCH `/api/leave-requests/{id}` — cancel (owner only, pending only); set status cancelled; audit log; no balance change (`backend/app/routers/leave_requests.py`, `backend/app/store.py`)
-- [ ] T026 [Leave] Frontend: Request Leave page — form, submit to POST `/api/leave-requests`; show validation errors (date, overlap, insufficient balance) (`frontend/src/pages/LeaveRequest.jsx`)
-- [ ] T027 [Leave] Frontend: My Requests page — list, status, leave type name, **rejection reason when rejected**, **Cancel** for own pending requests (`frontend/src/pages/LeaveHistory.jsx`)
-- [ ] T028 [Leave] Frontend: Approvals page — pending list, Approve/Reject with optional rejection reason (manager/admin) (`frontend/src/pages/Approvals.jsx`)
+- [x] T020 [Leave] POST `/api/leave-requests` — create; validate end_date ≥ start_date, no overlap same user+leave_type, sufficient balance (skip if leave type unpaid/zero entitlement); return clear error message on validation failure (`backend/app/routers/leave_requests.py`)
+- [x] T021 [Leave] GET `/api/leave-requests` — list (own or reportees for manager; any for admin); query status, my_only; MVP no year filter (`backend/app/routers/leave_requests.py`)
+- [x] T022 [Leave] GET `/api/leave-requests/{id}` — get one (owner or manager/admin) (`backend/app/routers/leave_requests.py`)
+- [x] T023 [Leave] POST `/api/leave-requests/{id}/approve` — approve/reject (manager/admin); body approved, rejection_reason (optional); store rejection_reason; update balance on approve (skip add_used_days for unpaid leave type) (`backend/app/routers/leave_requests.py`)
+- [x] T024 [Leave] Store: `get_or_create_balance`, `add_used_days` (skip for zero-entitlement type), audit log on approve/reject (`backend/app/store.py`)
+- [x] T025 [Leave] PATCH `/api/leave-requests/{id}` — cancel (owner only, pending only); set status cancelled; audit log; no balance change (`backend/app/routers/leave_requests.py`, `backend/app/store.py`)
+- [x] T026 [Leave] Frontend: Request Leave page — form, submit to POST `/api/leave-requests`; show validation errors (date, overlap, insufficient balance) (`frontend/src/pages/LeaveRequest.jsx`)
+- [x] T027 [Leave] Frontend: My Requests page — list, status, leave type name, **rejection reason when rejected**, **Cancel** for own pending requests (`frontend/src/pages/LeaveHistory.jsx`)
+- [x] T028 [Leave] Frontend: Approvals page — pending list, Approve/Reject with optional rejection reason (manager/admin) (`frontend/src/pages/Approvals.jsx`)
 
 ---
 
