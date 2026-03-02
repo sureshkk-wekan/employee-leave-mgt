@@ -45,11 +45,11 @@
 
 **Goal:** Admin can create/update leave types; all authenticated users can list active leave types. Support unpaid/loss-of-pay (e.g. default_days_per_year = 0).
 
-- [ ] T015 [P] GET `/api/leave-types` — list (optional active_only) (`backend/app/routers/leave_types.py`)
-- [ ] T016 POST `/api/leave-types` — create (admin only)
-- [ ] T017 GET `/api/leave-types/{id}` — get one
-- [ ] T018 PATCH `/api/leave-types/{id}` — update (admin only)
-- [ ] T019 Frontend: Leave type dropdown in Request Leave page (uses `/api/leave-types`) (`frontend/src/pages/LeaveRequest.jsx`)
+- [x] T015 [P] GET `/api/leave-types` — list (optional active_only) (`backend/app/routers/leave_types.py`)
+- [x] T016 POST `/api/leave-types` — create (admin only)
+- [x] T017 GET `/api/leave-types/{id}` — get one
+- [x] T018 PATCH `/api/leave-types/{id}` — update (admin only)
+- [x] T019 Frontend: Leave type dropdown in Request Leave page (uses `/api/leave-types`) (`frontend/src/pages/LeaveRequest.jsx`)
 
 ---
 
