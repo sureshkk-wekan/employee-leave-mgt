@@ -13,10 +13,13 @@ export default function LeaveRequest() {
   const [error, setError] = useState('')
   const [submitting, setSubmitting] = useState(false)
 
+  const [loadingTypes, setLoadingTypes] = useState(true)
   useEffect(() => {
+    setLoadingTypes(true)
     api('/leave-types')
       .then(setLeaveTypes)
       .catch(() => setError('Failed to load leave types'))
+      .finally(() => setLoadingTypes(false))
   }, [api])
 
   const handleSubmit = async (e) => {
@@ -40,6 +43,8 @@ export default function LeaveRequest() {
       setSubmitting(false)
     }
   }
+
+  if (loadingTypes) return <p className="text-slate-500">Loading leave types...</p>
 
   return (
     <div>

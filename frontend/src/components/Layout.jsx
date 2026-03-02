@@ -16,6 +16,7 @@ export default function Layout() {
     { to: '/history', label: 'My Requests' },
     { to: '/balances', label: 'My Balances' },
     ...(user?.role === 'manager' || user?.role === 'admin' ? [{ to: '/approvals', label: 'Approvals' }] : []),
+    ...(user?.role === 'admin' ? [{ to: '/users', label: 'Users' }] : []),
   ]
 
   return (

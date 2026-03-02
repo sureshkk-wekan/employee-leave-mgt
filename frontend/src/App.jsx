@@ -7,6 +7,7 @@ import LeaveRequest from './pages/LeaveRequest'
 import LeaveHistory from './pages/LeaveHistory'
 import Approvals from './pages/Approvals'
 import Balances from './pages/Balances'
+import Users from './pages/Users'
 
 function ProtectedRoute({ children, roles }) {
   const { user, loading } = useAuth()
@@ -46,6 +47,14 @@ export default function App() {
           }
         />
         <Route path="balances" element={<Balances />} />
+        <Route
+          path="users"
+          element={
+            <ProtectedRoute roles={['admin']}>
+              <Users />
+            </ProtectedRoute>
+          }
+        />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

@@ -93,12 +93,12 @@
 
 ## Phase 7: UI & Integration
 
-- [ ] T037 Layout: Header, nav (Dashboard, Request Leave, My Requests, My Balances, Approvals for manager/admin), user name, Logout (`frontend/src/components/Layout.jsx`)
-- [ ] T038 Dashboard: Welcome and links to main actions (`frontend/src/pages/Dashboard.jsx`)
-- [ ] T039 Frontend: Error messages, empty states (e.g. “No pending requests”, “No leave requests yet”), loading indicators on Request Leave, My Requests, Approvals, Balances (`frontend/src/pages/*.jsx`)
-- [ ] T040 Vite proxy: `/api` → backend (e.g. `http://127.0.0.1:8000`) (`frontend/vite.config.js`)
-- [ ] T041 CORS: Backend allows frontend origin (`backend/app/main.py`)
-- [ ] T042 Demo credentials: All roles use password `admin123`; seed creates admin@example.com, manager@example.com, employee@example.com
+- [x] T037 Layout: Header, nav (Dashboard, Request Leave, My Requests, My Balances, Approvals for manager/admin), user name, Logout (`frontend/src/components/Layout.jsx`)
+- [x] T038 Dashboard: Welcome and links to main actions (`frontend/src/pages/Dashboard.jsx`)
+- [x] T039 Frontend: Error messages, empty states (e.g. “No pending requests”, “No leave requests yet”), loading indicators on Request Leave, My Requests, Approvals, Balances (`frontend/src/pages/*.jsx`)
+- [x] T040 Vite proxy: `/api` → backend (e.g. `http://127.0.0.1:8000`) (`frontend/vite.config.js`)
+- [x] T041 CORS: Backend allows frontend origin (`backend/app/main.py`)
+- [x] T042 Demo credentials: All roles use password `admin123`; seed creates admin@example.com, manager@example.com, employee@example.com
 
 ---
 
