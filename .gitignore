@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+*.log
+.env
+.jwt_secret
+
+# Node
+node_modules/
+dist/
+build/
+*.log
+.env
+.env.local
+
+# IDE / OS
+.DS_Store
+Thumbs.db
+*.tmp
+.vscode/
+.idea/
+
+# Data (optional: commit empty or omit)
+# backend/data.json

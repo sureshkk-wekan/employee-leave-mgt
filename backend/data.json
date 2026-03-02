@@ -1,0 +1,149 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@example.com",
+      "hashed_password": "$2b$12$18qs0KHV2GabNy4IVOlVmep9T5Bt2j2uSbxN3hjCWutfRRapUCIaK",
+      "full_name": "Admin User",
+      "role": "admin",
+      "manager_id": null,
+      "is_active": true
+    },
+    {
+      "id": 2,
+      "email": "manager@example.com",
+      "hashed_password": "$2b$12$18qs0KHV2GabNy4IVOlVmep9T5Bt2j2uSbxN3hjCWutfRRapUCIaK",
+      "full_name": "Manager User",
+      "role": "manager",
+      "manager_id": 1,
+      "is_active": true
+    },
+    {
+      "id": 3,
+      "email": "employee@example.com",
+      "hashed_password": "$2b$12$18qs0KHV2GabNy4IVOlVmep9T5Bt2j2uSbxN3hjCWutfRRapUCIaK",
+      "full_name": "Employee User",
+      "role": "employee",
+      "manager_id": 2,
+      "is_active": true
+    }
+  ],
+  "leave_types": [
+    {
+      "id": 1,
+      "name": "Annual Leave",
+      "code": "ANNUAL",
+      "default_days_per_year": 22,
+      "allow_carry_over": true,
+      "is_active": true
+    },
+    {
+      "id": 2,
+      "name": "Sick Leave",
+      "code": "SICK",
+      "default_days_per_year": 10,
+      "allow_carry_over": false,
+      "is_active": true
+    },
+    {
+      "id": 3,
+      "name": "Unpaid Leave",
+      "code": "UNPAID",
+      "default_days_per_year": 0,
+      "allow_carry_over": false,
+      "is_active": true
+    }
+  ],
+  "leave_requests": [],
+  "leave_balances": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "leave_type_id": 1,
+      "year": 2026,
+      "entitlement_days": 22,
+      "carried_over_days": 0,
+      "used_days": 0
+    },
+    {
+      "id": 2,
+      "user_id": 1,
+      "leave_type_id": 2,
+      "year": 2026,
+      "entitlement_days": 10,
+      "carried_over_days": 0,
+      "used_days": 0
+    },
+    {
+      "id": 3,
+      "user_id": 1,
+      "leave_type_id": 3,
+      "year": 2026,
+      "entitlement_days": 0,
+      "carried_over_days": 0,
+      "used_days": 0
+    },
+    {
+      "id": 4,
+      "user_id": 3,
+      "leave_type_id": 1,
+      "year": 2026,
+      "entitlement_days": 22,
+      "carried_over_days": 0,
+      "used_days": 0
+    },
+    {
+      "id": 5,
+      "user_id": 3,
+      "leave_type_id": 2,
+      "year": 2026,
+      "entitlement_days": 10,
+      "carried_over_days": 0,
+      "used_days": 0
+    },
+    {
+      "id": 6,
+      "user_id": 3,
+      "leave_type_id": 3,
+      "year": 2026,
+      "entitlement_days": 0,
+      "carried_over_days": 0,
+      "used_days": 0
+    },
+    {
+      "id": 7,
+      "user_id": 2,
+      "leave_type_id": 1,
+      "year": 2026,
+      "entitlement_days": 22,
+      "carried_over_days": 0,
+      "used_days": 0
+    },
+    {
+      "id": 8,
+      "user_id": 2,
+      "leave_type_id": 2,
+      "year": 2026,
+      "entitlement_days": 10,
+      "carried_over_days": 0,
+      "used_days": 0
+    },
+    {
+      "id": 9,
+      "user_id": 2,
+      "leave_type_id": 3,
+      "year": 2026,
+      "entitlement_days": 0,
+      "carried_over_days": 0,
+      "used_days": 0
+    }
+  ],
+  "audit_logs": [],
+  "_next_id": {
+    "users": 4,
+    "leave_types": 4,
+    "leave_requests": 1,
+    "leave_balances": 10,
+    "audit_logs": 1
+  }
+}
