@@ -92,6 +92,17 @@ def list_users() -> list[dict]:
     return sorted(data.get("users", []), key=lambda u: u["email"])
 
 
+def list_reportees(manager_id: int) -> list[dict]:
+    """Users who have this manager_id. Returns minimal dicts: id, full_name, email."""
+    data = _get_data()
+    reportees = [
+        {"id": u["id"], "full_name": u.get("full_name", ""), "email": u["email"]}
+        for u in data.get("users", [])
+        if u.get("manager_id") == manager_id
+    ]
+    return sorted(reportees, key=lambda u: u["full_name"].lower())
+
+
 def create_user(
     email: str,
     hashed_password: str,

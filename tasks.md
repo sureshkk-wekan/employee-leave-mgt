@@ -73,9 +73,9 @@
 
 **Goal:** Users view leave balances; Manager can view reportees’ balances (read-only); Admin any user.
 
-- [ ] T029 [Balances] GET `/api/leave-balances` — list own; Manager may pass user_id for reportees only; Admin may pass user_id for any; optional year (`backend/app/routers/leave_balances.py`)
-- [ ] T030 [Balances] Frontend: My Balances page — list with remaining_days, leave type name; Manager: allow viewing reportees’ balances (e.g. dropdown or list) (`frontend/src/pages/Balances.jsx`)
-- [ ] T031 [Balances] Seed: create initial leave_balances for all users and leave types for current year (`backend/scripts/seed_db.py`)
+- [x] T029 [Balances] GET `/api/leave-balances` — list own; Manager may pass user_id for reportees only; Admin may pass user_id for any; optional year (`backend/app/routers/leave_balances.py`)
+- [x] T030 [Balances] Frontend: My Balances page — list with remaining_days, leave type name; Manager: allow viewing reportees’ balances (e.g. dropdown or list) (`frontend/src/pages/Balances.jsx`)
+- [x] T031 [Balances] Seed: create initial leave_balances for all users and leave types for current year (`backend/scripts/seed_db.py`)
 
 ---
 
