@@ -33,11 +33,11 @@
 
 **Goal:** Users can log in with email/password and receive a JWT; frontend stores token and sends it on API calls.
 
-- [ ] T010 [Auth] POST `/api/auth/login` — validate credentials, return JWT (`backend/app/routers/auth.py`)
-- [ ] T011 [Auth] GET `/api/auth/me` — return current user from JWT (`backend/app/routers/auth.py`)
-- [ ] T012 [Auth] Frontend: `AuthContext` — login, logout, `api()` helper, token in localStorage (`frontend/src/context/AuthContext.jsx`)
-- [ ] T013 [Auth] Frontend: Login page — form, redirect after login (`frontend/src/pages/Login.jsx`)
-- [ ] T014 [Auth] Frontend: Protected routes and role-based redirect (`frontend/src/App.jsx`)
+- [x] T010 [Auth] POST `/api/auth/login` — validate credentials, return JWT (`backend/app/routers/auth.py`)
+- [x] T011 [Auth] GET `/api/auth/me` — return current user from JWT (`backend/app/routers/auth.py`)
+- [x] T012 [Auth] Frontend: `AuthContext` — login, logout, `api()` helper, token in localStorage (`frontend/src/context/AuthContext.jsx`)
+- [x] T013 [Auth] Frontend: Login page — form, redirect after login (`frontend/src/pages/Login.jsx`)
+- [x] T014 [Auth] Frontend: Protected routes and role-based redirect (`frontend/src/App.jsx`)
 
 ---
 
