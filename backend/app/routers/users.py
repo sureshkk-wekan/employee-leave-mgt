@@ -27,14 +27,14 @@ def _user_to_response(u: dict) -> UserResponse:
 
 
 @router.get("", response_model=list[UserResponse])
-async def list_users_route(current_user=Depends(RequireAdmin)):
+async def list_users_route(current_user=RequireAdmin):
     """List all users (admin only)."""
     users = list_users()
     return [_user_to_response(u) for u in users]
 
 
 @router.post("", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
-async def create_user_route(body: UserCreate, current_user=Depends(RequireAdmin)):
+async def create_user_route(body: UserCreate, current_user=RequireAdmin):
     """Create user (admin only). Password is hashed before storing."""
     try:
         u = store_create_user(
@@ -67,7 +67,7 @@ async def get_user_route(
 async def update_user_route(
     user_id: int,
     body: UserUpdate,
-    current_user=Depends(RequireAdmin),
+    current_user=RequireAdmin,
 ):
     """Update user (admin only). Optionally set password (hashed)."""
     u = get_user_by_id(user_id)
