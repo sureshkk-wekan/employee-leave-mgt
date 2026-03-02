@@ -20,7 +20,7 @@ python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 cp .env.example .env         # Set SECRET_KEY, optional DATA_FILE
-python scripts/seed_db.py    # Creates data.json, demo users and leave types
+python -m scripts.seed_db    # Creates data.json, demo users and leave types
 uvicorn app.main:app --reload --port 8000
 ```
 

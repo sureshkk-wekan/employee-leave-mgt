@@ -104,8 +104,8 @@
 
 ## Phase 8: Documentation & Repo
 
-- [ ] T043 README: Quick start, tech stack, project layout, demo logins, config (`README.md`)
-- [ ] T044 spec.md, plan.md, tasks.md, data-model.md, quickstart.md, contracts/ — maintained per workflow
+- [x] T043 README: Quick start, tech stack, project layout, demo logins, config (`README.md`)
+- [x] T044 spec.md, plan.md, tasks.md, data-model.md, quickstart.md, contracts/ — maintained per workflow
 
 ---
 
