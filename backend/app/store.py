@@ -129,24 +129,15 @@ def create_user(
     return user
 
 
-def update_user(
-    user_id: int,
-    full_name: str | None = None,
-    role: str | None = None,
-    manager_id: int | None = None,
-    is_active: bool | None = None,
-) -> dict | None:
+def update_user(user_id: int, **kwargs: Any) -> dict | None:
+    """Update user fields. Pass only fields to update; None clears (e.g. manager_id)."""
+    allowed = {"full_name", "role", "manager_id", "is_active"}
     data = _get_data()
     for u in data.get("users", []):
         if u["id"] == user_id:
-            if full_name is not None:
-                u["full_name"] = full_name
-            if role is not None:
-                u["role"] = role
-            if manager_id is not None:
-                u["manager_id"] = manager_id
-            if is_active is not None:
-                u["is_active"] = is_active
+            for k in allowed:
+                if k in kwargs:
+                    u[k] = kwargs[k]
             _put_data(data)
             return u
     return None

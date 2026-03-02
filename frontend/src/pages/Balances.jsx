@@ -5,20 +5,27 @@ export default function Balances() {
   const { api, user } = useAuth()
   const [balances, setBalances] = useState([])
   const [leaveTypes, setLeaveTypes] = useState({})
-  const [reportees, setReportees] = useState([])
+  const [userOptions, setUserOptions] = useState([]) // reportees for manager, all users for admin
   const [selectedUserId, setSelectedUserId] = useState(null) // null = "Me"
   const [year, setYear] = useState(new Date().getFullYear())
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
-  const canViewReportees = user?.role === 'manager' || user?.role === 'admin'
+  const canViewOthers = user?.role === 'manager' || user?.role === 'admin'
 
   useEffect(() => {
-    if (!canViewReportees) return
-    api('/leave-balances/reportees')
-      .then(setReportees)
-      .catch(() => setReportees([]))
-  }, [api, canViewReportees])
+    if (!canViewOthers) return
+    if (user?.role === 'admin') {
+      api('/users')
+        .then((list) => list.map((u) => ({ id: u.id, full_name: u.full_name, email: u.email })))
+        .then(setUserOptions)
+        .catch(() => setUserOptions([]))
+    } else {
+      api('/leave-balances/reportees')
+        .then(setUserOptions)
+        .catch(() => setUserOptions([]))
+    }
+  }, [api, canViewOthers, user?.role])
 
   const loadBalances = () => {
     setLoading(true)
@@ -51,7 +58,7 @@ export default function Balances() {
       <h1 className="text-2xl font-semibold text-slate-800 mb-6">Leave Balances</h1>
 
       <div className="mb-6 flex flex-wrap items-center gap-4">
-        {canViewReportees && reportees.length > 0 && (
+        {canViewOthers && userOptions.length > 0 && (
           <div className="flex items-center gap-2">
             <label className="text-sm font-medium text-slate-700">View balances for</label>
             <select
@@ -60,7 +67,7 @@ export default function Balances() {
               className="rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:ring-2 focus:ring-amber-500"
             >
               <option value="">Me</option>
-              {reportees.map((r) => (
+              {userOptions.map((r) => (
                 <option key={r.id} value={r.id}>
                   {r.full_name} ({r.email})
                 </option>

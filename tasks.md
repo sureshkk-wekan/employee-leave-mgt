@@ -83,11 +83,11 @@
 
 **Goal:** Admin CRUD users; Employee/Manager GET own user (read-only).
 
-- [ ] T032 [Users] GET `/api/users` — list (admin only) (`backend/app/routers/users.py`)
-- [ ] T033 [Users] POST `/api/users` — create (admin only; hash password) (`backend/app/routers/users.py`)
-- [ ] T034 [Users] GET `/api/users/{id}` — get one (admin any; Employee/Manager own id only, read-only) (`backend/app/routers/users.py`)
-- [ ] T035 [Users] PATCH `/api/users/{id}` — update (admin only) (`backend/app/routers/users.py`)
-- [ ] T036 [Users] Store: `update_user`, `update_user_password` for demo password sync (`backend/app/store.py`)
+- [x] T032 [Users] GET `/api/users` — list (admin only) (`backend/app/routers/users.py`)
+- [x] T033 [Users] POST `/api/users` — create (admin only; hash password) (`backend/app/routers/users.py`)
+- [x] T034 [Users] GET `/api/users/{id}` — get one (admin any; Employee/Manager own id only, read-only) (`backend/app/routers/users.py`)
+- [x] T035 [Users] PATCH `/api/users/{id}` — update (admin only) (`backend/app/routers/users.py`)
+- [x] T036 [Users] Store: `update_user`, `update_user_password` for demo password sync (`backend/app/store.py`)
 
 ---
 
